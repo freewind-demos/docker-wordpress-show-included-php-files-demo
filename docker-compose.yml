@@ -1,0 +1,27 @@
+version: '3'
+services:
+  wordpress:
+    image: wordpress:5.3.2-php7.3-apache
+    volumes:
+    - ./WordPress-5.3.2:/var/www/html
+    ports:
+      - 20080:80
+  mysql:
+    image: mysql/mysql-server:5.6.45
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_DATABASE=wordpress
+    ports:
+      - 23306:3306
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+  phpMyAdmin:
+    image: phpmyadmin/phpmyadmin:5
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+    ports:
+      - 20081:80
+    links:
+      - mysql:db
+
