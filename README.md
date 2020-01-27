@@ -12,3 +12,10 @@ Docker Wordpress MySql Demo
 npm run up
 ```
 
+当前登录wordpress的用户名和密码是：
+
+```
+freewind
+123456
+```
+
