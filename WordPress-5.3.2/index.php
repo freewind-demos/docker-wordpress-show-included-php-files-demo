@@ -15,3 +15,13 @@ define( 'WP_USE_THEMES', true );
 
 /** Loads the WordPress Environment and Template */
 require( dirname( __FILE__ ) . '/wp-blog-header.php' );
+
+
+
+
+
+$included_files = get_included_files();
+
+foreach ($included_files as $filename) {
+    echo "$filename\n";
+}
